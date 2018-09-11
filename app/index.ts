@@ -107,9 +107,9 @@ export const connect = async (email: string, password: string) => {
             };
         },
 
-        async turnBaseStationOn(deviceId: string) {
+        async turnBaseStationOn(propKey: number) {
             await runWithAuth((auth) => {
-                return adsHttp.post('properties/14852273/datapoints.json', {
+                return adsHttp.post(`properties/${propKey}/datapoints.json`, {
                     datapoint: {
                         value: 1
                     }
@@ -121,9 +121,9 @@ export const connect = async (email: string, password: string) => {
             });
         },
 
-        async turnBaseStationOff(deviceId: string) {
+        async turnBaseStationOff(propKey: number) {
             await runWithAuth((auth) => {
-                return adsHttp.post('properties/14852273/datapoints.json', {
+                return adsHttp.post(`properties/${propKey}/datapoints.json`, {
                     datapoint: {
                         value: 0
                     }
